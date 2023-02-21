@@ -131,3 +131,7 @@ dmypy.json
 # Images
 *.jpg
 *.png
+
+# Annotations
+*.zip
+annotations.xml
