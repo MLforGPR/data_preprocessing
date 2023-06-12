@@ -1,11 +1,12 @@
 # data_preprocessing
-This repository contains the code for data preprocessing for the Capstone project.
+This repository contains the code for data preprocessing for the Capstone project.  
 To run the code, please pull this repository and `traditional` repository to the same directory. The `traditional` repository can be found [here](https://github.com/MLforGPR/traditional).
 
 ## Data
 Create a folder named `unprocessed_images` in the root directory of the project, and the raw GPR data should be copied to this folder. The data should be saved in the following way:
 ```
 root directory
+|   annotation (annotation files)
 │   unprocessed_images
 │   │   WLT_350_210926__001 P_2111131.JPG
 |   │   WLT_350_210926__003 P_2111131.JPG
