@@ -37,3 +37,56 @@ The output of the annotation process in CVAT is a zip file. This zip file contai
 6. Saving Annotations: Save your annotations within the CVAT platform to preserve your work.
 
 7. Exporting Annotations: After saving, you can export the annotations as a zip file. Click on the "Menu" button and select "Export job dataset" to export the annotations as a zip file. Choose the "CVAT for images 1.1" format and click on the "Export" button to export the annotations as a zip file. You can customize the name of the zip file. The zip file will be downloaded to your computer.
+
+## Dataset Generation
+The dataset generation contains two parts: cropping and dataset generation. The cropping process is implemented in the `annotation_parser.ipynb` file. The dataset generation process is implemented in the `dataset_generator.ipynb` and `dataset_generator_hyperbola.ipynb` file.
+
+### Image Conversion
+The `image_converter.ipynb` file takes the GPR image in PNG format as input and converts it to JPG format. The converted images are saved in the `unprocessed` folder in the root directory of the project.
+
+### Image Cropping
+The `annotation_parser.ipynb` file takes the zip file containing the annotations as input and generates the cropped image based on your setting. The cropped images are saved in the `unprocessed\cropped` folder in the root directory of the project.  
+Move the exported zip file containing the annotations to the root directory of the project. 
+The cropped images are saved in the following way:
+```
+root directory
+│   annotation_parser.ipynb
+|   train_1st2ndDataset.zip (exported zip file containing the annotations)
+|   test_1st2ndDataset.zip
+|   train_3rdDataset.zip
+|   ...
+│   unprocessed_images
+|   |   cropped (cropped images)
+|   |   │   │
+|   |   │   └───200_40 (200x200 pixels and 40 pixel step)
+|   |   │   |   |
+|   |   │   |   └───train_1st2ndDataset (name of the CVAT annotations)
+|   |   │   |   |   |
+|   |   │   |   |   └───0 (image index of the dataset)
+|   |   │   |   |   |   │   0_0.jpg (depth_index of the image)
+|   |   │   |   |   |   │   0_1.jpg
+|   |   │   |   |   |   │   ...
+|   |   │   |   |   |   |   40_0.jpg
+|   |   │   |   |   |   |   40_1.jpg
+|   |   │   |   |   |   |   ...
+|   |   |   |   |   |
+|   |   │   |   |   └───1
+|   |   │   |   |   |   │   0_0.jpg
+|   |   │   |   |   |   |   ...
+|   |   │   |   |   |
+|   |   │   |   |   └───...
+|   |   │   |   |
+|   |   │   |   └───test_1st2ndDataset (name of the CVAT annotations)
+|   |   │   |   |   │   ...
+|   |   │   |   |
+|   |   │   |   └───train_3rdDataset (name of the CVAT annotations)
+```
+
+### Dataset Generation
+The `dataset_generator.ipynb` and `dataset_generator_hyperbola.ipynb` file takes the cropped images as input and generates the dataset. The dataset is npz file containing the GPR data and the corresponding labels. The dataset is saved in the root directory of the project.
+```
+root directory
+|   dataset_generator.ipynb
+|   dataset_generator_hyperbola.ipynb
+|   ...
+```
