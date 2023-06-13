@@ -2,6 +2,15 @@
 This repository contains the code for data preprocessing for the Capstone project.  
 To run the code, please pull this repository and `traditional` repository to the same directory. The `traditional` repository can be found [here](https://github.com/MLforGPR/traditional).
 
+## Overview of Steps
+This section provides an overview of the steps required to generate the dataset. The detailed instructions are provided in the following sections.
+1. Move the raw GPR data to the `unprocessed_images` folder in the root directory of the project.
+2. Annotate the GPR data using the CVAT platform.
+3. Export the annotations as a zip file.
+4. Move the exported zip file to the `annotations` folder in the root directory of the project.
+5. Run the `annotation_parser.ipynb` file to crop the images.
+6. Run the `dataset_generator.ipynb` file to generate the dataset.
+
 ## Data
 Create a folder named `unprocessed_images` in the root directory of the project, and the raw GPR data should be copied to this folder. The data should be saved in the following way:
 ```
