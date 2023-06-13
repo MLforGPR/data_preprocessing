@@ -94,10 +94,10 @@ root directory
 ```
 
 ### Dataset Generation
-The `dataset_generator.ipynb` and `dataset_generator_hyperbola.ipynb` file takes the cropped images as input and generates the dataset. The dataset is npz file containing the GPR data and the corresponding labels. The dataset is saved in the root directory of the project.
+The `dataset_generator_hyperbola.ipynb` and `dataset_generator_layers.ipynb` file takes the cropped images as input and generates the dataset. The dataset is npz file containing the GPR data and the corresponding labels. The dataset is saved in the root directory of the project.
 ```
 root directory
-|   dataset_generator.ipynb
+|   dataset_generator_layers.ipynb
 |   dataset_generator_hyperbola.ipynb
 |   ...
 ```
